@@ -1,12 +1,12 @@
-import { fetchCardData } from "@/app/lib/data";
-import { Card } from "@/app/ui/dashboard/cards";
-import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
-import RevenueChart from "@/app/ui/dashboard/revenue-chart";
-import { lusitana } from "@/app/ui/fonts";
+import { fetchCardData } from "@/lib/data";
+import { Card } from "@/components/ui/dashboard/cards";
+import LatestInvoices from "@/components/ui/dashboard/latest-invoices";
+import RevenueChart from "@/components/ui/dashboard/revenue-chart";
+import { lusitana } from "@/components/ui/fonts";
 import {
   LatestInvoicesSkeleton,
   RevenueChartSkeleton,
-} from "@/app/ui/skeletons";
+} from "@/components/shared/skeletons";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

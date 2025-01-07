@@ -1,20 +1,27 @@
 "use client";
 
-import { CustomerField } from "@/app/lib/definitions";
-import Link from "next/link";
+import { CustomerField, InvoiceForm } from "@/lib/definitions";
 import {
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { Button } from "@/app/ui/button";
-import { createInvoice, State } from "@/app/lib/actions";
+import { State, updateInvoice } from "@/lib/actions";
 import { useActionState } from "react";
 
-export default function Form({ customers }: { customers: CustomerField[] }) {
+export default function EditInvoiceForm({
+  invoice,
+  customers,
+}: {
+  invoice: InvoiceForm;
+  customers: CustomerField[];
+}) {
   const initialState: State = { message: null, errors: {} };
-  const [state, formAction] = useActionState(createInvoice, initialState);
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
 
   return (
     <form action={formAction}>
@@ -29,7 +36,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               id="customer"
               name="customerId"
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-              defaultValue=""
+              defaultValue={invoice.customer_id}
               aria-describedby="customer-error"
             >
               <option value="" disabled>
@@ -65,6 +72,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 name="amount"
                 type="number"
                 step="0.01"
+                defaultValue={invoice.amount}
                 placeholder="Enter USD amount"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                 aria-describedby="amount-error"
@@ -95,6 +103,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   name="status"
                   type="radio"
                   value="pending"
+                  defaultChecked={invoice.status === "pending"}
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   aria-describedby="status-error"
                 />
@@ -111,6 +120,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   name="status"
                   type="radio"
                   value="paid"
+                  defaultChecked={invoice.status === "paid"}
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                 />
                 <label
@@ -130,7 +140,6 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </p>
               ))}
           </div>
-
           <div aria-live="polite" aria-atomic="true">
             {state.message && (
               <p className="mt-2 text-sm text-red-500">{state.message}</p>
@@ -145,7 +154,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Invoice</Button>
+        <Button type="submit">Edit Invoice</Button>
       </div>
     </form>
   );

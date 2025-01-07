@@ -1,15 +1,15 @@
 "use client";
 
-import { lusitana } from "@/app/ui/fonts";
+import { lusitana } from "@/components/ui/fonts";
 import {
   AtSymbolIcon,
   ExclamationCircleIcon,
   KeyIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { Button } from "./button";
+import { Button } from "../../shared/button";
 import { useActionState } from "react";
-import { authenticate } from "@/app/lib/actions";
+import { authenticate } from "@/lib/actions";
 
 export default function LoginForm() {
   const [errorMessage, formAction, isPending] = useActionState(
