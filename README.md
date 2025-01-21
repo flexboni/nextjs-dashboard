@@ -1,5 +1,28 @@
-## Next.js App Router Course - Starter
-
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
-
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+your-project/
+├── app/                      # App Router
+│   ├── (auth)/              # Auth related routes (grouped)
+│   │   ├── login/
+│   │   ├── signup/
+│   │   └── layout.tsx
+│   ├── (main)/              # Main features (grouped)
+│   │   ├── feed/
+│   │   ├── profile/
+│   │   └── layout.tsx
+│   ├── api/                 # API routes
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Home page
+├── components/              # Shared components
+│   ├── ui/                  # UI components (buttons, inputs, etc)
+│   └── shared/             # Shared feature components
+├── lib/                     # Library code
+│   ├── firebase/           # Firebase configuration
+│   │   ├── config.ts       # Firebase configuration
+│   │   ├── auth.ts         # Auth related functions
+│   │   └── db.ts           # Firestore related functions
+│   └── utils/              # Utility functions
+├── hooks/                   # Custom hooks
+│   ├── useAuth.ts         # Auth related hooks
+│   └── useFirestore.ts    # Firestore related hooks
+├── types/                   # TypeScript type definitions
+├── styles/                  # Global styles
+└── public/                 # Static files

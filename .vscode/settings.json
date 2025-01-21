@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["Pado"]
+  "cSpell.words": ["Pado"],
+  "[markdown]": {
+    "editor.tabSize": 4
+  }
 }

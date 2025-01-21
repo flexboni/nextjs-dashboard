@@ -8,9 +8,9 @@ export default function Logo() {
     >
       <Image
         src="/logo_white.png"
-        width={1000}
-        height={760}
-        className="hidden md:block"
+        width={500}
+        height={450}
+        className="hidden md:block w-80"
         alt="Screenshots of the dashboard project showing desktop version"
       />
     </div>
