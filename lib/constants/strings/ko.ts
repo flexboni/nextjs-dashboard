@@ -1,4 +1,4 @@
-import { Strings } from "@/lib/constants/strings/types";
+import { Strings } from "@/lib/types/strings";
 
 export const STRINGS: Strings = {
   COMMON: {

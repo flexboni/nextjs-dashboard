@@ -2,7 +2,7 @@ import Link from "next/link";
 import NavLinks from "@/components/ui/dashboard/nav-links";
 import Logo from "@/components/shared/logo";
 import { PowerIcon } from "@heroicons/react/24/outline";
-import { signOut } from "@/auth";
+import { signOut } from "@/lib/firebase/auth";
 
 export default function SideNav() {
   return (
@@ -20,7 +20,6 @@ export default function SideNav() {
         <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form
           action={async () => {
-            "use server";
             await signOut();
           }}
         >

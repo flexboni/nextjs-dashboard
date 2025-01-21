@@ -1,4 +1,3 @@
-// hooks/useFirestore.ts
 import {
   collection,
   addDoc,
@@ -8,7 +7,6 @@ import {
   getDoc,
   getDocs,
   query,
-  where,
   type QueryConstraint,
 } from "firebase/firestore";
 import { db } from "@/lib/firebase/firebase";
@@ -61,6 +59,7 @@ export const useFirestore = (collectionName: string) => {
       if (docSnap.exists()) {
         return { id: docSnap.id, ...docSnap.data() };
       }
+
       return null;
     } catch (error) {
       console.error(`${STRINGS.ERRORS.GET_DOCUMENT} : `, error);
