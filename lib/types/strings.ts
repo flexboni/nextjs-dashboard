@@ -3,11 +3,20 @@ export type Strings = {
     LOADING: string;
     SAVE: string;
     CANCEL: string;
+    EMAIL: string;
+    PASSWORD: string;
+    PASSWORD_CONFIRM: string;
+    SIGNUP: string;
+    DISPLAY_NAME: string;
+  };
+  PLACEHOLDER: {
+    EMAIL: string;
   };
   AUTH: {
     LOGIN_SUCCESS: string;
     LOGOUT_SUCCESS: string;
     LOGIN_REQUEST: string;
+    SIGNUP_TITLE: string;
   };
   ERRORS: {
     GENERAL: string;
@@ -19,5 +28,6 @@ export type Strings = {
     DELETE_DOCUMENT: string;
     INVALID_CREDENTIALS: string;
     CREATE_ACCOUNT: string;
+    PASSWORD_NOT_MATCH: string;
   };
 };

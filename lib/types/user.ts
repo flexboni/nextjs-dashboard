@@ -1,4 +1,5 @@
 import { timestampSchema } from "@/lib/utils";
+import { Timestamp } from "firebase/firestore";
 import { z } from "zod";
 
 export const UserSchema = z.object({
@@ -9,4 +10,14 @@ export const UserSchema = z.object({
   updatedAt: timestampSchema,
 });
 
+export const SignupSchema = z.object({
+  email: z.string().email(),
+  displayName: z.string(),
+  isApproved: z.boolean().default(false),
+  createdAt: z.custom<Timestamp>(),
+  updatedAt: z.custom<Timestamp>(),
+});
+
 export type UserData = z.infer<typeof UserSchema>;
+
+export type SignupData = z.infer<typeof SignupSchema>;

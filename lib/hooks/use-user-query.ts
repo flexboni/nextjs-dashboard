@@ -1,5 +1,5 @@
 import { KEYS } from "@/lib/constants/keys";
-import { useFirestore } from "@/lib/hooks/useFirestore";
+import { useFirestore } from "@/lib/hooks/use-firestore";
 import { UserSchema } from "@/lib/types/user";
 import { useQuery } from "@tanstack/react-query";
 
